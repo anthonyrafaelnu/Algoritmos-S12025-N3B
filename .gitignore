@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,maven
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven
+# Created by https://www.toptal.com/developers/gitignore/api/java,maven,netbeans
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,netbeans
 
 ### Java ###
 # Compiled class file
@@ -46,4 +46,14 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# End of https://www.toptal.com/developers/gitignore/api/java,maven
+### NetBeans ###
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# End of https://www.toptal.com/developers/gitignore/api/java,maven,netbeans
