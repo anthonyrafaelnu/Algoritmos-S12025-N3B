@@ -29,8 +29,9 @@ public class Practico11 {
         //System.out.println("Son iguales = " + l.sonIguales(l2));
         //System.out.println("Está ordenada = " + l3.estaOrdenada());
         
-        int[][] mat = {{1,2,3},{4,5,6},{7,8,9}};
-        diagonalPrincipal(mat);
+        int[][] mat = {{1,2,3},{4,5,6},{1,2,3}};
+        //diagonalPrincipal(mat);
+        System.out.println("Son filas iguales: " + mismasFilas(mat, 0, 2));
     }
     
     public static void diagonalPrincipal(int[][] mat){
@@ -42,6 +43,27 @@ public class Practico11 {
             System.out.println(mat[pos][pos]);
             diagonalPrincipalRec(mat, pos + 1);
         }
+    }
+    
+    public static boolean mismasFilas(int mat[][], int fila1, int fila2){
+        if(sonFilasValidas(fila1, fila2, mat.length - 1)){
+            return mismasFilasRec(mat, fila1, fila2, 0);
+        }else{
+            return false;
+        }
+    }
+    
+    public static boolean sonFilasValidas(int fila1, int fila2, int tope){
+        return fila1 >= 0 && fila2 >= 0 && fila1 <= tope && fila2 <= tope;
+    }
+    
+    public static boolean mismasFilasRec(int mat[][], int fila1, int fila2, int col){
+        if(mat[0].length - 1 == col){
+            return mat[fila1][col] == mat[fila2][col];
+        }
+        
+        return mat[fila1][col] == mat[fila2][col] && 
+                mismasFilasRec(mat, fila1, fila2, col + 1);
     }
     
 }
