@@ -11,7 +11,8 @@ public class Ordenacion {
         //System.out.println("Lista antes de ordenar: " + Arrays.toString(lista));
         //bubbleSort(listaInversa);
         //bubbleSortOptimizado(lista);
-        selectionSort(lista);
+        //selectionSort(lista);
+        insertionSort(lista);
         System.out.println("Lista ordenada: " + Arrays.toString(lista));
         // Espero: [2,7,8,12,45,45,66,70]
     }
@@ -96,6 +97,20 @@ public class Ordenacion {
         System.out.println("Cant comparaciones: " + comparaciones);
         System.out.println("Cant intercambios: " + intercambios);
         System.out.println("Cant cambios: " + cambios);
+    }
+    
+    public static void insertionSort(int[] lista){
+        for (int i = 1; i < lista.length; i++) {
+            int aInsertar = lista[i];
+            int j = i - 1;
+            
+            while(j >= 0 && lista[j] > aInsertar){
+                lista[j+1] = lista[j];
+                j--;
+            }
+            
+            lista[j+1] = aInsertar;
+        }
     }
     
 }
