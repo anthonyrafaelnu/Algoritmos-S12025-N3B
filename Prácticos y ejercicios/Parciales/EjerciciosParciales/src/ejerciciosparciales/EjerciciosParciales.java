@@ -1,5 +1,8 @@
 package ejerciciosparciales;
 
+import tads.ListaNodos;
+import tads.NodoLista;
+
 public class EjerciciosParciales {
 
     public static void main(String[] args) {
@@ -11,7 +14,17 @@ public class EjerciciosParciales {
         {78, 9, 0, 32, 11}};
 
         //System.out.println("Esta valor: " + estaValor(mat, 2, 9));
-        System.out.println("Existe fila: " + existeFila(mat));
+        //System.out.println("Existe fila: " + existeFila(mat));
+        
+        ListaNodos lista = new ListaNodos();
+        lista.agregarFinal(1);
+        lista.agregarFinal(8);
+        lista.agregarFinal(2);
+        lista.agregarFinal(32);
+        lista.agregarFinal(23);
+        lista.agregarFinal(10);
+        
+        System.out.println("Suma valores rec: " + sumaValores(lista.lista, 10));
     }
 
     // Parcial 09/12/2024, ejercicio 1.a
@@ -73,4 +86,20 @@ public class EjerciciosParciales {
         }
     }
 
+    // Parcial 09/12/2024, ejercicio 2.b
+    // [34,11,5,1,3,90] (original)
+    // [11,34,5,1,3,90] (pasada 1)
+    // [5,11,34,1,3,90] (pasada 2)
+    // [1,5,11,34,3,90] (pasada 3)
+    // [1,3,5,11,34,90] (pasada 4)
+    // [1,3,5,11,34,90] (pasada 5)
+    
+    public static int sumaValores(NodoLista inicio, int n){
+        if(inicio == null) return 0; // Caso base
+        if((int)inicio.getDato() > n){
+            return (int)inicio.getDato() + sumaValores(inicio.getSiguiente(), n);
+        }else{
+            return sumaValores(inicio.getSiguiente(), n);
+        }
+    }
 }
